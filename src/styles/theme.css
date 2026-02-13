@@ -1,15 +1,22 @@
-:root {
+/* =========================================
+   THEME SYSTEM — Neobrutalism Color Palettes
+   =========================================
+   Each theme defines the core design tokens used
+   throughout the portfolio. The neobrutalism structure
+   (hard shadows, thick borders) is preserved across
+   all themes while the color personality changes.
+   ========================================= */
+
+/* ───── DEFAULT: Light ───── */
+:root,
+[data-theme="light"] {
     --background: #ffffff;
     --foreground: #000000;
     --surface: #ffffff;
     --primary: #7C3AED;
-    /* Vibrant Purple - darkened for accessibility (contrast 4.6:1 on white) */
     --primary-text: #6D28D9;
-    /* Darker purple for text - ensures WCAG AA compliance (contrast 6.1:1 on white) */
     --secondary: #FFD600;
-    /* Vibrant Yellow */
     --accent: #FF6B6B;
-    /* Vibrant Red/Pink */
     --border-color: #000000;
     --muted-foreground: #666666;
 
@@ -18,17 +25,144 @@
     --radius-neo: 0.5rem;
 }
 
-.dark {
+/* ───── Dark ───── */
+.dark,
+[data-theme="dark"] {
     --background: #000000;
     --foreground: #ffffff;
     --surface: #1a1a1a;
+    --primary: #7C3AED;
     --primary-text: #A78BFA;
-    /* Lighter purple for dark mode text - ensures WCAG AA compliance (contrast 7.5:1 on black) */
+    --secondary: #FFD600;
+    --accent: #FF6B6B;
     --border-color: #ffffff;
     --muted-foreground: #d4d4d4;
     --shadow-neo: 4px 4px 0px 0px #ffffff;
 }
 
+/* ───── Cyberpunk ───── */
+[data-theme="cyberpunk"] {
+    --background: #0a0a1a;
+    --foreground: #e0e0ff;
+    --surface: #12122a;
+    --primary: #FF00FF;
+    --primary-text: #FF66FF;
+    --secondary: #00FFFF;
+    --accent: #FFE500;
+    --border-color: #FF00FF;
+    --muted-foreground: #8888bb;
+
+    --shadow-neo: 4px 4px 0px 0px #FF00FF;
+    --border-width-neo: 2px;
+    --radius-neo: 0.5rem;
+}
+
+/* ───── Sunset ───── */
+[data-theme="sunset"] {
+    --background: #1a0a0a;
+    --foreground: #ffeedd;
+    --surface: #2a1210;
+    --primary: #FF6B35;
+    --primary-text: #FF8A5C;
+    --secondary: #FFB347;
+    --accent: #FF4E6A;
+    --border-color: #FF6B35;
+    --muted-foreground: #cc9977;
+
+    --shadow-neo: 4px 4px 0px 0px #FF6B35;
+    --border-width-neo: 2px;
+    --radius-neo: 0.5rem;
+}
+
+/* ───── Ocean ───── */
+[data-theme="ocean"] {
+    --background: #041C32;
+    --foreground: #E0F2FE;
+    --surface: #062847;
+    --primary: #04D9FF;
+    --primary-text: #38BDF8;
+    --secondary: #06D6A0;
+    --accent: #F72585;
+    --border-color: #04D9FF;
+    --muted-foreground: #7DAACC;
+
+    --shadow-neo: 4px 4px 0px 0px #04D9FF;
+    --border-width-neo: 2px;
+    --radius-neo: 0.5rem;
+}
+
+/* ───── Forest ───── */
+[data-theme="forest"] {
+    --background: #0B1D0B;
+    --foreground: #E8F5E9;
+    --surface: #142814;
+    --primary: #4CAF50;
+    --primary-text: #81C784;
+    --secondary: #FFD54F;
+    --accent: #FF8A65;
+    --border-color: #4CAF50;
+    --muted-foreground: #8DB58D;
+
+    --shadow-neo: 4px 4px 0px 0px #4CAF50;
+    --border-width-neo: 2px;
+    --radius-neo: 0.5rem;
+}
+
+/* ───── Rose ───── */
+[data-theme="rose"] {
+    --background: #FFF5F7;
+    --foreground: #1A1A2E;
+    --surface: #FFF0F3;
+    --primary: #E91E63;
+    --primary-text: #C2185B;
+    --secondary: #9C27B0;
+    --accent: #FF6F00;
+    --border-color: #1A1A2E;
+    --muted-foreground: #6B6B88;
+
+    --shadow-neo: 4px 4px 0px 0px #1A1A2E;
+    --border-width-neo: 2px;
+    --radius-neo: 0.5rem;
+}
+
+/* ───── Retro ───── */
+[data-theme="retro"] {
+    --background: #FFFBEB;
+    --foreground: #292524;
+    --surface: #FEF3C7;
+    --primary: #D97706;
+    --primary-text: #B45309;
+    --secondary: #059669;
+    --accent: #DC2626;
+    --border-color: #292524;
+    --muted-foreground: #78716C;
+
+    --shadow-neo: 4px 4px 0px 0px #292524;
+    --border-width-neo: 2px;
+    --radius-neo: 0.5rem;
+}
+
+/* ───── Midnight ───── */
+[data-theme="midnight"] {
+    --background: #0F0F23;
+    --foreground: #CCCCFF;
+    --surface: #1A1A3E;
+    --primary: #6366F1;
+    --primary-text: #818CF8;
+    --secondary: #A78BFA;
+    --accent: #F472B6;
+    --border-color: #6366F1;
+    --muted-foreground: #9999CC;
+
+    --shadow-neo: 4px 4px 0px 0px #6366F1;
+    --border-width-neo: 2px;
+    --radius-neo: 0.5rem;
+}
+
+/* ============================================
+   Tailwind v4 @theme inline — maps CSS vars
+   to Tailwind utility classes
+   ============================================ */
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);

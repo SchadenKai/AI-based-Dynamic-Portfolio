@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
+import React, { useState } from 'react';
+import { useTheme, THEMES } from '@/components/providers/ThemeProvider';
 import { motion } from 'framer-motion';
 
 interface GithubStatsProps {
@@ -44,28 +44,8 @@ function AsyncStatsImage({ src, alt, className = "", displayBlock = false }: Asy
 }
 
 export function GithubStats({ username, variant = 'default' }: GithubStatsProps) {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-        <section aria-labelledby="github-stats-heading" className="w-full">
-            {variant === 'default' && (
-                <h3 id="github-stats-heading" className="text-2xl md:text-4xl font-bold mb-6 md:mb-12 uppercase flex items-center tracking-wide">
-                    <span className="w-4 h-4 md:w-6 md:h-6 bg-primary mr-3 md:mr-6" aria-hidden="true"></span>
-                    GitHub Activity
-                </h3>
-            )}
-            <div className="w-full h-32 bg-gray-200 dark:bg-gray-800 animate-pulse rounded-sm" />
-        </section>
-    ); 
-  }
-
-  const isDark = resolvedTheme === 'dark';
+  const { theme } = useTheme();
+  const isDark = THEMES.find(t => t.name === theme)?.isDark ?? false;
   const graphTheme = isDark ? 'merko' : 'default';
   const langTheme = isDark ? 'react' : 'default';
   const streakTheme = isDark ? 'black-ice' : 'default';

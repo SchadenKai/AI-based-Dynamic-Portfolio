@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { ThemeProvider, ThemeScript } from "@/components/providers/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,6 +104,7 @@ export default function RootLayout({
       <head>
         {/* DNS prefetch for third-party origins */}
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
+        <ThemeScript />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -120,12 +121,7 @@ export default function RootLayout({
             }),
           }}
         />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider defaultTheme="dark">
           {children}
         </ThemeProvider>
       </body>
