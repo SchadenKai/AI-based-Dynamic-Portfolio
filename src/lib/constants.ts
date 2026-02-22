@@ -78,3 +78,6 @@ Output Schema (JSON):
   "message": "string"
 }
 `;
+
+// AI Model Configuration
+export const AI_MODEL = "gemini-2.5-flash";

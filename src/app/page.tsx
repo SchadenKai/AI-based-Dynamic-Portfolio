@@ -4,6 +4,8 @@ import { LiquidHero } from '@/components/ui/LiquidHero';
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { profile } from "@/lib/profile";
+import { getAvailableSections } from "@/lib/sections";
+import { StoreInitializer } from "@/components/layout/StoreInitializer";
 
 const DynamicPortfolio = dynamic(
   () => import('@/components/content/DynamicPortfolio').then(m => ({ default: m.DynamicPortfolio })),
@@ -18,8 +20,12 @@ const DynamicPortfolio = dynamic(
 );
 
 export default function Home() {
+  const availableSections = getAvailableSections(profile);
+
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white relative">
+      <StoreInitializer availableSections={availableSections} />
+
       {/* Skip link for keyboard accessibility */}
       <a href="#portfolio" className="skip-link">
         Skip to main content
@@ -28,7 +34,7 @@ export default function Home() {
       <div className="fixed bottom-6 right-6 z-50">
         <ThemeToggle />
       </div>
-      
+
       <LiquidHero>
         <HeroChat />
       </LiquidHero>
@@ -36,8 +42,6 @@ export default function Home() {
       <article id="portfolio" className="min-h-screen w-full px-4 py-8 md:p-12 max-w-7xl mx-auto" aria-label="Portfolio content">
 
         <DynamicPortfolio profile={profile} />
-
-        
 
       </article>
     </main>

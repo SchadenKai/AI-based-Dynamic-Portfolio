@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider, ThemeScript } from "@/components/providers/ThemeProvider";
+import { SCHEMA_ORG } from "@/lib/client-constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,34 +24,19 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+import { SITE_CONFIG } from "@/lib/client-constants";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://schadenkai.space"),
+  metadataBase: new URL(SITE_CONFIG.siteUrl),
   title: {
-    default: "Kairus Noah Tecson | Senior AI Software Engineer",
-    template: "%s | Kairus Noah Tecson",
+    default: SITE_CONFIG.title,
+    template: SITE_CONFIG.titleTemplate,
   },
-  description:
-    "Senior AI Software Engineer specializing in Production RAG Systems and Multi-Agent Orchestration for Healthcare and Defense. Expert in LangChain, LangGraph, and full AI lifecycle development.",
-  keywords: [
-    "AI Software Engineer",
-    "RAG Systems",
-    "Multi-Agent Orchestration",
-    "LangChain",
-    "LangGraph",
-    "Full Stack Developer",
-    "React",
-    "Next.js",
-    "Python",
-    "FastAPI",
-    "Machine Learning",
-    "Healthcare AI",
-    "DevOps",
-    "Cloud Engineering",
-    "Kairus Noah Tecson",
-  ],
-  authors: [{ name: "Kairus Noah Tecson", url: "https://github.com/SchadenKai" }],
-  creator: "Kairus Noah Tecson",
-  publisher: "Kairus Noah Tecson",
+  description: SITE_CONFIG.description,
+  keywords: SITE_CONFIG.keywords,
+  authors: [{ name: SITE_CONFIG.author, url: SITE_CONFIG.authorUrl }],
+  creator: SITE_CONFIG.author,
+  publisher: SITE_CONFIG.author,
   robots: {
     index: true,
     follow: true,
@@ -63,34 +49,32 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: "website",
+    type: SITE_CONFIG.ogType as "website",
     locale: "en_US",
-    url: "https://schadenkai.space/",
-    siteName: "Kairus Noah Tecson",
-    title: "Kairus Noah Tecson | Senior AI Software Engineer",
-    description:
-      "Senior AI Software Engineer specializing in Production RAG Systems and Multi-Agent Orchestration. Building intelligent systems for Healthcare and Defense.",
+    url: SITE_CONFIG.siteUrl,
+    siteName: SITE_CONFIG.author,
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
     images: [
       {
-        url: "/og-image.png",
+        url: SITE_CONFIG.ogImage,
         width: 1200,
         height: 630,
-        alt: "Kairus Noah Tecson - Senior AI Software Engineer",
+        alt: SITE_CONFIG.title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kairus Noah Tecson | Senior AI Software Engineer",
-    description:
-      "Senior AI Software Engineer specializing in Production RAG Systems and Multi-Agent Orchestration.",
-    images: ["/og-image.png"],
-    creator: "@SchadenKai",
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
+    images: [SITE_CONFIG.ogImage],
+    creator: SITE_CONFIG.twitterUsername,
   },
 
   manifest: "/site.webmanifest",
   alternates: {
-    canonical: "https://schadenkai.space/",
+    canonical: SITE_CONFIG.siteUrl,
   },
 };
 
@@ -112,13 +96,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Kairus Noah Tecson",
-              url: "https://schadenkai.space",
-              alternateName: ["Kairus Noah Tecson Portfolio", "KNT Portfolio"],
-            }),
+            __html: JSON.stringify(SCHEMA_ORG),
           }}
         />
         <ThemeProvider defaultTheme="dark">

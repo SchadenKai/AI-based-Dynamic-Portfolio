@@ -19,7 +19,21 @@ This file generally follows the schema of [JSON Resume](https://jsonresume.org/)
 
 *Tip: If you already have a JSON Resume `resume.json` file, you can likely copy-paste the majority of it directly into `profile.json`.*
 
-## 2. Managing Environment Variables
+## 2. Setting up SEO and Site Metadata
+
+To ensure your web portfolio ranks correctly and displays accurate information when shared structurally on the web (e.g., LinkedIn, Twitter graph cards), you can modify the SEO constants.
+
+All client-side metadata variables, including SEO meta tags and your default GitHub username for the Git stats component, are located here:
+**`src/lib/client-constants.ts`**
+
+Simply update `SITE_CONFIG` with your own details:
+- `title`
+- `description`
+- `keywords`
+- `githubUsername`
+- `twitterUsername`
+
+## 3. Managing Environment Variables
 
 Ensure you have your APIs set up. Please reference the [Environment Variables Guide](./env-vars.md) for detailed instructions on what each variable does and where to get the API keys.
 

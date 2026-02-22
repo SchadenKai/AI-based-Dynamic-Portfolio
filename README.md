@@ -6,6 +6,7 @@ A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed t
 
 - **Dynamic Layout:** Uses Google Vertex AI (Gemini) to categorize and prioritize sections based on visitor interaction.
 - **Data-Driven:** All content is powered by a central `profile.json` (similar to JSON Resume format).
+- **SEO & Metadata Control:** All SEO configurations (Titles, Descriptions, Keywords, OpenGraph data) are centralized in a single configuration file.
 - **Responsive & Accessible:** Built with modern CSS techniques for seamless experiences on all devices.
 - **Dev.to Integration:** Fetches your latest posts from Dev.to automatically.
 

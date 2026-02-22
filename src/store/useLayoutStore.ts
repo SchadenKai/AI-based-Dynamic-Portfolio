@@ -3,25 +3,31 @@ import { create } from 'zustand';
 export type SectionName = 'about' | 'skills' | 'experience' | 'projects' | 'achievements' | 'writings';
 
 interface LayoutState {
+  defaultLayoutOrder: SectionName[];
   layoutOrder: SectionName[];
   highlightIds: string[];
   isConfigured: boolean;
+  setDefaultLayout: (order: SectionName[]) => void;
   setLayout: (order: SectionName[], highlights: string[]) => void;
   resetLayout: () => void;
 }
 
 export const useLayoutStore = create<LayoutState>((set) => ({
+  defaultLayoutOrder: ['about', 'skills', 'experience', 'projects', 'achievements', 'writings'],
   layoutOrder: ['about', 'skills', 'experience', 'projects', 'achievements', 'writings'],
   highlightIds: [],
   isConfigured: false,
-  setLayout: (order, highlights) => set({ 
-      layoutOrder: order, 
-      highlightIds: highlights,
-      isConfigured: true 
+  setDefaultLayout: (order) => set({
+    defaultLayoutOrder: order,
   }),
-  resetLayout: () => set({ 
-      layoutOrder: ['about', 'skills', 'experience', 'projects', 'achievements', 'writings'], 
-      highlightIds: [], 
-      isConfigured: false 
+  setLayout: (order, highlights) => set({
+    layoutOrder: order,
+    highlightIds: highlights,
+    isConfigured: true
   }),
+  resetLayout: () => set((state) => ({
+    layoutOrder: state.defaultLayoutOrder,
+    highlightIds: [],
+    isConfigured: false
+  })),
 }));

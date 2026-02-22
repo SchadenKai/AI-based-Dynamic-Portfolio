@@ -1,5 +1,6 @@
 import { VertexAI, HarmCategory, HarmBlockThreshold } from "@google-cloud/vertexai";
 import { profile } from "@/lib/profile";
+import { getAvailableSections } from "@/lib/sections";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import {
@@ -7,7 +8,8 @@ import {
   ERROR_MESSAGES,
   MINUTE_RATE_LIMIT_MESSAGES,
   DAILY_RATE_LIMIT_MESSAGES,
-  getSystemInstructions
+  getSystemInstructions,
+  AI_MODEL
 } from "@/lib/constants";
 
 // Initialize Vertex AI
@@ -135,19 +137,28 @@ async function getClientIdentifier(): Promise<string> {
 }
 
 
-const context = `
+const availableSections = getAvailableSections(profile);
+
+let context = `
 Candidate: ${profile.basics.name}
 Role: ${profile.basics.label}
-
-Experience:
-${profile.work.map((w, i) => `ID: work-${i} | ${w.name} - ${w.position} (${w.summary})`).join('\n')}
-
-Projects:
-${profile.projects.map((p, i) => `ID: project-${i} | ${p.name} - ${p.description}`).join('\n')}
-
-Skills:
-${profile.skills.map((s, i) => `ID: skill-${i} | ${s.name}: ${s.keywords.join(', ')}`).join('\n')}
 `;
+
+if (availableSections.includes('experience')) {
+  context += `\nExperience:\n${profile.work.map((w, i) => `ID: work-${i} | ${w.name} - ${w.position} (${w.summary})`).join('\n')}\n`;
+}
+
+if (availableSections.includes('projects')) {
+  context += `\nProjects:\n${profile.projects.map((p, i) => `ID: project-${i} | ${p.name} - ${p.description}`).join('\n')}\n`;
+}
+
+if (availableSections.includes('skills')) {
+  context += `\nSkills:\n${profile.skills.map((s, i) => `ID: skill-${i} | ${s.name}: ${s.keywords.join(', ')}`).join('\n')}\n`;
+}
+
+if (availableSections.includes('achievements')) {
+  context += `\nAchievements:\n${(profile.achievements || []).map((a, i) => `ID: achievement-${i} | ${a.title} @ ${a.event}`).join('\n')}\n`;
+}
 
 const instructions = getSystemInstructions(context);
 
@@ -171,7 +182,7 @@ export async function POST(req: Request) {
       // Return 429 Too Many Requests with a humorous message
       return NextResponse.json(
         {
-          layout_order: ['experience', 'projects', 'skills', 'achievements', 'posts'],
+          layout_order: availableSections,
           highlight_ids: [],
           message,
           isRateLimited: true,
@@ -201,7 +212,7 @@ export async function POST(req: Request) {
       // Fallback for demo/no-key environment
       console.warn("GOOGLE_CLOUD_PROJECT_ID not set. Using default layout.");
       return NextResponse.json({
-        layout_order: ['about', 'experience', 'projects', 'skills', 'achievements', 'writings'],
+        layout_order: availableSections,
         highlight_ids: [],
         message: ERROR_MESSAGES[Math.floor(Math.random() * ERROR_MESSAGES.length)],
         rateLimit: rateLimitResult.remaining,
@@ -209,7 +220,7 @@ export async function POST(req: Request) {
     }
 
     const model = vertexAI.getGenerativeModel({
-      model: "gemini-2.5-flash",
+      model: AI_MODEL,
       systemInstruction: {
         role: 'system',
         parts: [{ text: instructions }]
@@ -238,11 +249,11 @@ export async function POST(req: Request) {
 
       // Force achievements and writings to be at the end, and about to be at the start if not present
       if (parsedResponse.layout_order) {
-        const fixedAtEnd = ['achievements', 'writings'];
+        const fixedAtEnd = availableSections.filter(s => ['achievements', 'writings'].includes(s));
         const fixedAtStart = ['about'];
 
         // Filter out fixed sections if AI included them (to avoid duplicates)
-        const dynamicSections = parsedResponse.layout_order.filter((s: string) => !fixedAtEnd.includes(s) && !fixedAtStart.includes(s));
+        const dynamicSections = parsedResponse.layout_order.filter((s: string) => !fixedAtEnd.includes(s as any) && !fixedAtStart.includes(s) && availableSections.includes(s as any));
 
         // Construct final order: About -> Dynamic (Experience/Projects/Skills) -> Fixed End (Achievements/Writings)
         parsedResponse.layout_order = [...fixedAtStart, ...dynamicSections, ...fixedAtEnd];
@@ -251,7 +262,7 @@ export async function POST(req: Request) {
       console.error("Failed to parse JSON response:", text);
       // Fallback if model doesn't return valid JSON
       parsedResponse = {
-        layout_order: ['about', 'experience', 'projects', 'skills', 'achievements', 'writings'],
+        layout_order: availableSections,
         highlight_ids: [],
         message: text // Return the raw text as message if it's not JSON
       };
@@ -274,7 +285,7 @@ export async function POST(req: Request) {
 
     // Return a humorous, user-friendly error message
     return NextResponse.json({
-      layout_order: ['experience', 'projects', 'skills', 'achievements', 'posts'],
+      layout_order: availableSections,
       highlight_ids: [],
       message: getRandomErrorMessage(),
       isError: true  // Flag to let frontend know this was an error
