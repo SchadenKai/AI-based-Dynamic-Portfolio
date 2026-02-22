@@ -1,5 +1,5 @@
-import { VertexAI, HarmCategory, HarmBlockThreshold } from "@google-cloud/vertexai";
 import { profile } from "@/lib/profile";
+import { generateAIResponse } from "@/lib/ai";
 import { getAvailableSections } from "@/lib/sections";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
@@ -12,13 +12,8 @@ import {
   AI_MODEL
 } from "@/lib/constants";
 
-// Initialize Vertex AI
-// Note: Requires GOOGLE_APPLICATION_CREDENTIALS to be set in environment
-// or running in an environment with default credentials (like Cloud Run)
-const project = process.env.GOOGLE_CLOUD_PROJECT_ID;
-const location = process.env.GOOGLE_CLOUD_LOCATION || 'us-central1';
-
-const vertexAI = project ? new VertexAI({ project, location }) : null;
+// We use centralized generation from src/lib/ai.ts
+// The provider is determined by AI_PROVIDER or GOOGLE_CLOUD_PROJECT_ID.
 
 // In-memory rate limit store (works for single-instance deployments)
 // For production with multiple instances, consider Redis or similar
@@ -208,9 +203,11 @@ export async function POST(req: Request) {
     // ========================================================================
     const { message, history } = await req.json();
 
-    if (!vertexAI) {
+    // Check if we have any provider configured before making the call
+    const provider = process.env.AI_PROVIDER || (process.env.GOOGLE_CLOUD_PROJECT_ID ? 'vertexai' : 'none');
+    if (provider === 'none') {
       // Fallback for demo/no-key environment
-      console.warn("GOOGLE_CLOUD_PROJECT_ID not set. Using default layout.");
+      console.warn("No AI provider configured. Using default layout.");
       return NextResponse.json({
         layout_order: availableSections,
         highlight_ids: [],
@@ -219,27 +216,15 @@ export async function POST(req: Request) {
       });
     }
 
-    const model = vertexAI.getGenerativeModel({
-      model: AI_MODEL,
-      systemInstruction: {
-        role: 'system',
-        parts: [{ text: instructions }]
-      },
-      generationConfig: {
-        responseMimeType: "application/json"
-      }
-    });
-
-    const chatHistory = history ? history.map((h: any) => `${h.role}: ${h.content}`).join('\n') : '';
-    const fullPrompt = `${chatHistory}\nUser: ${message}`;
-
-    const result = await model.generateContent(fullPrompt);
-    const response = await result.response;
-    // Vertex AI SDK response structure might slightly differ, safe access
-    const text = response.candidates?.[0]?.content?.parts?.[0]?.text;
+    const text = await generateAIResponse(
+      instructions,
+      history,
+      message,
+      AI_MODEL
+    );
 
     if (!text) {
-      throw new Error("No content generated from Vertex AI");
+      throw new Error("No content generated from AI Provider");
     }
 
     // Include rate limit info in successful response

@@ -14,9 +14,10 @@ A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed t
 
 ## 🚀 Installation & Setup
 
-1. **Clone the repository**
+1. **Fork and clone the repository**
+   Click the **Fork** button at the top right of this page to create your own copy on GitHub, then clone your fork:
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/YOUR_GITHUB_USERNAME/new-year-new-you-portfolio.git
    cd new-year-new-you-portfolio
    ```
 
@@ -33,8 +34,8 @@ A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed t
    DEV_TO_API_KEY=your_dev_to_api_key
 
    # Optional: For enabling the AI Chat Hero feature
-   GOOGLE_CLOUD_PROJECT_ID=your_gcp_project_id
-   GOOGLE_CLOUD_LOCATION=us-central1
+   AI_PROVIDER=openai
+   AI_API_KEY=your_openai_api_key
    ```
    *For details on the environment variables, see [Environment Variables Guide](./docs/env-vars.md).*
 
@@ -60,3 +61,36 @@ All of your personal information (experience, projects, skills, education) lives
 3. Save the file. The site will instantly reflect your new content!
 
 For a more comprehensive, step-by-step tutorial on customizing the AI and advanced data updates, please read the **[Comprehensive Content Update Guide](./docs/content-update-guide.md)**.
+
+---
+
+## 🚀 How to Deploy and Update using Vercel
+
+Vercel is the easiest way to deploy your Next.js portfolio.
+
+### Initial Deployment
+
+1. **Fork the Repository**: If you haven't already, click the **Fork** button at the top right of this page to create your own copy on GitHub.
+2. **Sign up / Log in to Vercel**: Go to [vercel.com](https://vercel.com) and log in with your GitHub account.
+3. **Add New Project**: From your Vercel dashboard, click **Add New** and select **Project**.
+4. **Import Your Fork**: Find your newly forked `new-year-new-you-portfolio` repository in the list and click **Import**.
+5. **Configure Project**:
+   - Vercel will automatically detect that it's a **Next.js** project.
+   - If you are using any environment variables (like `DEV_TO_API_KEY`, `AI_PROVIDER`, etc.), expand the **Environment Variables** section and add them here.
+6. **Deploy**: Click the **Deploy** button. Wait a minute or two, and your site will be live!
+
+### Updating Your Live App
+
+Once deployed, updating your live portfolio is incredibly simple:
+
+1. **Make Changes Locally**: Edit your `src/data/profile.json` or any other files.
+2. **Commit Your Changes**:
+   ```bash
+   git add .
+   git commit -m "Update portfolio content"
+   ```
+3. **Push to Your Fork**:
+   ```bash
+   git push origin main
+   ```
+4. **Automatic Deployment**: Vercel listens for changes to your main branch. As soon as you push to your fork, Vercel will automatically trigger a new deployment and update your live website within minutes. There is no need to manually deploy again!
