@@ -8,7 +8,7 @@ A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed t
 - **Data-Driven:** All content is powered by a central `profile.json` (similar to JSON Resume format).
 - **SEO & Metadata Control:** All SEO configurations (Titles, Descriptions, Keywords, OpenGraph data) are centralized in a single configuration file.
 - **Responsive & Accessible:** Built with modern CSS techniques for seamless experiences on all devices.
-- **Dev.to Integration:** Fetches your latest posts from Dev.to automatically.
+- **Dev.to Integration (Optional):** Fetches your latest posts from Dev.to automatically. If no API key is provided, the section gracefully degrades.
 
 ---
 
@@ -26,13 +26,13 @@ A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed t
    # or yarn / pnpm / bun install
    ```
 
-3. **Set up Environment Variables**
-   Create a `.env.local` file in the root directory and add the following:
+3. **Set up Environment Variables (Optional)**
+   The portfolio works perfectly fine as a static site without any environment variables. However, if you want to use the AI Chat or auto-fetch Dev.to posts, create a `.env.local` file in the root directory and add the following:
    ```env
-   # Required for fetching dev.to articles
+   # Optional: For fetching dev.to articles
    DEV_TO_API_KEY=your_dev_to_api_key
 
-   # Required for the AI chat logic
+   # Optional: For enabling the AI Chat Hero feature
    GOOGLE_CLOUD_PROJECT_ID=your_gcp_project_id
    GOOGLE_CLOUD_LOCATION=us-central1
    ```

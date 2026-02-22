@@ -6,9 +6,9 @@ export async function GET() {
   const apiKey = process.env.DEV_TO_API_KEY;
 
   if (!apiKey) {
-    console.warn('DEV_TO_API_KEY is not defined in environment variables');
-    // Return empty array or mock data if acceptable, but error is better for debugging
-    return NextResponse.json({ error: 'DEV_TO_API_KEY is missing' }, { status: 500 });
+    console.warn('DEV_TO_API_KEY is not defined in environment variables. Falling back to empty posts array.');
+    // Gracefully fallback so the app continues to work without failing
+    return NextResponse.json([], { status: 200 });
   }
 
   try {

@@ -21,6 +21,7 @@ const DynamicPortfolio = dynamic(
 
 export default function Home() {
   const availableSections = getAvailableSections(profile);
+  const showChat = !!process.env.GOOGLE_CLOUD_PROJECT_ID;
 
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white relative">
@@ -35,9 +36,13 @@ export default function Home() {
         <ThemeToggle />
       </div>
 
-      <LiquidHero>
-        <HeroChat />
-      </LiquidHero>
+      {showChat ? (
+        <LiquidHero>
+          <HeroChat />
+        </LiquidHero>
+      ) : (
+        <div className="pt-24 md:pt-32" /> // Spacing for static view
+      )}
 
       <article id="portfolio" className="min-h-screen w-full px-4 py-8 md:p-12 max-w-7xl mx-auto" aria-label="Portfolio content">
 
