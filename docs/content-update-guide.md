@@ -17,6 +17,22 @@ This file generally follows the schema of [JSON Resume](https://jsonresume.org/)
 - **`projects`**: Add your personal or professional projects here. 
 - **`skills`**: Update technical skills. Note that these are arrays of strings under a specific `"name"` category (e.g., "Languages", "Frameworks").
 
+### Linking Images and Assets:
+
+When updating sections that require images, such as company logos in `work`, event photos in `achievements`, or custom project thumbnails, you should place your image files inside the `/public` directory of your project.
+
+For example, if you add a logo `my-company.jpg` to the `/public/company_logo/` folder, you would reference it in your `profile.json` using an absolute path relative to the public root:
+
+```json
+"work": [
+  {
+    "name": "My Company",
+    // ...other fields
+    "logo": "/company_logo/my-company.jpg"
+  }
+]
+```
+
 *Tip: If you already have a JSON Resume `resume.json` file, you can likely copy-paste the majority of it directly into `profile.json`.*
 
 ## 2. Setting up SEO and Site Metadata
