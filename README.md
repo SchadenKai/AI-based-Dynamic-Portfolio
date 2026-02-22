@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI-based Dynamic Portfolio
 
-## Getting Started
+A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed to uniquely tailor content presentation using AI.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Dynamic Layout:** Uses Google Vertex AI (Gemini) to categorize and prioritize sections based on visitor interaction.
+- **Data-Driven:** All content is powered by a central `profile.json` (similar to JSON Resume format).
+- **Responsive & Accessible:** Built with modern CSS techniques for seamless experiences on all devices.
+- **Dev.to Integration:** Fetches your latest posts from Dev.to automatically.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Installation & Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd new-year-new-you-portfolio
+   ```
 
-## Learn More
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or yarn / pnpm / bun install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Set up Environment Variables**
+   Create a `.env.local` file in the root directory and add the following:
+   ```env
+   # Required for fetching dev.to articles
+   DEV_TO_API_KEY=your_dev_to_api_key
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   # Required for the AI chat logic
+   GOOGLE_CLOUD_PROJECT_ID=your_gcp_project_id
+   GOOGLE_CLOUD_LOCATION=us-central1
+   ```
+   *For details on the environment variables, see [Environment Variables Guide](./docs/env-vars.md).*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Run the Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 How to Update the Content (The Easy Way)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The content of this portfolio is entirely separated from the code, making it extremely easy to update without touching any React components.
+
+All of your personal information (experience, projects, skills, education) lives in a single JSON file:
+👉 **`src/data/profile.json`**
+
+### Quick Steps:
+
+1. Open `src/data/profile.json` in your editor.
+2. Edit the text fields (e.g., `"name"`, `"summary"`, `"company"`, etc.) with your own information.
+3. Save the file. The site will instantly reflect your new content!
+
+For a more comprehensive, step-by-step tutorial on customizing the AI and advanced data updates, please read the **[Comprehensive Content Update Guide](./docs/content-update-guide.md)**.
