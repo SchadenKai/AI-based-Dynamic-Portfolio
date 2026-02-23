@@ -26,7 +26,18 @@ export async function generateAIResponse(
         const location = process.env.GOOGLE_CLOUD_LOCATION || 'us-central1';
         if (!project) throw new Error("GOOGLE_CLOUD_PROJECT_ID missing for vertexai");
 
-        const vertexAI = new VertexAI({ project, location });
+        const vertexAiOptions: any = { project, location };
+
+        if (process.env.GOOGLE_CLIENT_EMAIL && process.env.GOOGLE_PRIVATE_KEY) {
+            vertexAiOptions.googleAuthOptions = {
+                credentials: {
+                    client_email: process.env.GOOGLE_CLIENT_EMAIL,
+                    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+                }
+            };
+        }
+
+        const vertexAI = new VertexAI(vertexAiOptions);
         const model = vertexAI.getGenerativeModel({
             model: modelName || defaultModel,
             systemInstruction: { role: 'system', parts: [{ text: systemInstruction }] },

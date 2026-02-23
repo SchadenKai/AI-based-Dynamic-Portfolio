@@ -34,3 +34,9 @@ The following environment variables are used in the AI-based Dynamic Portfolio p
 
 - `GOOGLE_APPLICATION_CREDENTIALS`
   - **Description**: Absolute path to your Google Cloud service account JSON key file. Required if you are running the project locally with vertexai.
+
+- `GOOGLE_CLIENT_EMAIL`
+  - **Description**: The email of your Google Cloud service account. Required for `vertexai` on platforms like Vercel where file-based credentials are not available.
+
+- `GOOGLE_PRIVATE_KEY`
+  - **Description**: The private key of your Google Cloud service account. Required alongside `GOOGLE_CLIENT_EMAIL` for `vertexai` on serverless platforms.

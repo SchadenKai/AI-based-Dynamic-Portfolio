@@ -214,7 +214,7 @@ export function DynamicPortfolio({ profile }: DynamicPortfolioProps) {
                 </AnimatePresence>
                 
                 <footer className="border-t-2 border-border pt-6 md:pt-8 text-center lg:text-left text-muted-foreground font-mono text-xs md:text-sm font-bold mt-12 md:mt-20">
-                    <p>© {new Date().getFullYear()} {profile.basics.name}. Deployed on Google Cloud Run.</p>
+                    <p>© {new Date().getFullYear()} {profile.basics.name}.</p>
                 </footer>
              </div>
          </main>
