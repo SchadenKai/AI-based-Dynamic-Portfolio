@@ -1,5 +1,7 @@
 # AI-based Dynamic Portfolio
 
+![Star the project for support](./docs/assets/send-star-support-image.png)
+
 A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed to uniquely tailor content presentation using AI.
 
 ## Features
