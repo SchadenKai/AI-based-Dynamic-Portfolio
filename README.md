@@ -1,6 +1,6 @@
 # AI-based Dynamic Portfolio
 
-![Star the project for support](./docs/assets/send-star-support-image.png)
+<img src="./docs/assets/send-star-support-image.png" alt="Star the project for support" width="300" />
 
 A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed to uniquely tailor content presentation using AI.
 
