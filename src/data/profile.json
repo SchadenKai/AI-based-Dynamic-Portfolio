@@ -39,10 +39,33 @@
         "Migrated infrastructure from AWS to Hetzner bare-metal VMs using Terraform and Ansible, deploying via Kubernetes."
       ],
       "skills": [
-        "Next.js", "React", "FastAPI", "SQLAlchemy", "PostgreSQL", "Docker", "AWS", "Azure", "GitHub", 
-        "Git", "Github Actions", "Linux", "Beautiful Soup", "OpenAI", "Pandas", "Stripe", "Supabase", 
-        "Wordpress", "Schadcn UI", "Nginx", "Figma", "PydanticAI", "Langchain", "LiteLLM", "Traefik", 
-        "Expo", "Hetzner"
+        "Next.js",
+        "React",
+        "FastAPI",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "Azure",
+        "GitHub",
+        "Git",
+        "Github Actions",
+        "Linux",
+        "Beautiful Soup",
+        "OpenAI",
+        "Pandas",
+        "Stripe",
+        "Supabase",
+        "Wordpress",
+        "Schadcn UI",
+        "Nginx",
+        "Figma",
+        "PydanticAI",
+        "Langchain",
+        "LiteLLM",
+        "Traefik",
+        "Expo",
+        "Hetzner"
       ],
       "logo": "/company_logo/arnoldai_new_logo.png"
     },
@@ -58,7 +81,14 @@
         "Pivoted from complex multi-agent proposal to streamlined single-agent architecture via prompt optimization.",
         "Replaced Server-Side Rendering (SSR) overhead with client-side strategies to optimize performance."
       ],
-      "skills": ["FastAPI", "SQLAlchemy", "PostgreSQL", "OpenAI", "React", "PydanticAI"],
+      "skills": [
+        "FastAPI",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "OpenAI",
+        "React",
+        "PydanticAI"
+      ],
       "logo": "/company_logo/coolriots_logo.jpg"
     }
   ],
@@ -145,13 +175,37 @@
   ],
   "projects": [
     {
+      "name": "AI-based Dynamic Portfolio",
+      "description": "A modern, dynamic portfolio built with Next.js, designed to uniquely tailor content presentation using AI.",
+      "highlights": [
+        "Uses Google Vertex AI (Gemini) to categorize and prioritize sections based on visitor interaction.",
+        "Data-driven design powered by a central profile.json configuration.",
+        "SEO and metadata control centralized in a single configuration file."
+      ],
+      "keywords": [
+        "Next.js",
+        "React",
+        "Vertex AI",
+        "Gemini",
+        "TypeScript"
+      ],
+      "type": "Open Source",
+      "url": "https://github.com/SchadenKai/AI-based-Dynamic-Portfolio"
+    },
+    {
       "name": "Dynamic UI: Generative AI Component Rendering",
       "description": "Designed a 'Generative UI' Proof-of-Concept that utilizes LLM Function Calling to dynamically generate structured JSON payloads, rendering adaptive React components.",
       "highlights": [
         "Utilized LLM Function Calling for dynamic structured JSON generation.",
         "Rendered adaptive React components (charts, forms, tables) based on natural language."
       ],
-      "keywords": ["FastAPI", "OpenAI API", "Pydantic AI", "Next.js", "TypeScript"],
+      "keywords": [
+        "FastAPI",
+        "OpenAI API",
+        "Pydantic AI",
+        "Next.js",
+        "TypeScript"
+      ],
       "type": "Concept"
     },
     {
@@ -161,7 +215,12 @@
         "Engineered a serverless backend using FastAPI, SQLModel, and Pydantic.",
         "Built full inventory and appointment management system with Swagger API documentation."
       ],
-      "keywords": ["FastAPI", "SQLModel", "Pydantic", "Vercel"],
+      "keywords": [
+        "FastAPI",
+        "SQLModel",
+        "Pydantic",
+        "Vercel"
+      ],
       "type": "Commission"
     },
     {
@@ -171,7 +230,12 @@
         "Developed solid waste image classification model robust against adversarial attacks.",
         "Engineered for space and time efficiency using Knowledge Distillation."
       ],
-      "keywords": ["Python", "PyTorch", "Computer Vision", "Adversarial Training"],
+      "keywords": [
+        "Python",
+        "PyTorch",
+        "Computer Vision",
+        "Adversarial Training"
+      ],
       "type": "Research/Project"
     },
     {
@@ -181,7 +245,12 @@
         "Built an IoT-connected waste tracking system with Express.js and Firebase backend.",
         "Implemented real-time monitoring via Firestore and automated CRON tasks."
       ],
-      "keywords": ["Express.js", "Firebase", "IoT", "Firestore"],
+      "keywords": [
+        "Express.js",
+        "Firebase",
+        "IoT",
+        "Firestore"
+      ],
       "type": "College Project"
     },
     {
@@ -192,7 +261,15 @@
         "Vector Infrastructure: Milvus for high-concurrency similarity search.",
         "Deployed on AWS (ECS Fargate) with CI/CD via GitHub Actions."
       ],
-      "keywords": ["LangGraph", "Milvus", "Docker", "AWS", "GitHub Actions", "Python", "Pytest"],
+      "keywords": [
+        "LangGraph",
+        "Milvus",
+        "Docker",
+        "AWS",
+        "GitHub Actions",
+        "Python",
+        "Pytest"
+      ],
       "type": "Open Source",
       "url": "https://github.com/SchadenKai/Clinical-RAG"
     }
