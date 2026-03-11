@@ -195,17 +195,6 @@
       "keywords": ["LangGraph", "Milvus", "Docker", "AWS", "GitHub Actions", "Python", "Pytest"],
       "type": "Open Source",
       "url": "https://github.com/SchadenKai/Clinical-RAG"
-    },
-    {
-      "name": "chat-man",
-      "description": "Experimental playground for agentic LM chat workflows and real-time API integrations.",
-      "highlights": [
-        "Exploration of different real-time API communications.",
-        "Prototyping of agentic workflows using Jupyter Notebooks."
-      ],
-      "keywords": ["Jupyter Notebook", "Python", "Agentic Workflows"],
-      "type": "Pet Project",
-      "url": "https://github.com/SchadenKai/chat-man"
     }
   ],
   "achievements": [
