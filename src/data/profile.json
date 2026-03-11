@@ -165,12 +165,7 @@
     },
     {
       "name": "Database",
-      "keywords": [
-        "Firestore",
-        "PostgreSQL",
-        "Supabase",
-        "MySQL"
-      ]
+      "keywords": ["Firestore", "PostgreSQL", "Supabase", "MySQL"]
     }
   ],
   "projects": [
@@ -182,13 +177,7 @@
         "Data-driven design powered by a central profile.json configuration.",
         "SEO and metadata control centralized in a single configuration file."
       ],
-      "keywords": [
-        "Next.js",
-        "React",
-        "Vertex AI",
-        "Gemini",
-        "TypeScript"
-      ],
+      "keywords": ["Next.js", "React", "Vertex AI", "Gemini", "TypeScript"],
       "type": "Open Source",
       "url": "https://github.com/SchadenKai/AI-based-Dynamic-Portfolio"
     },
@@ -215,12 +204,7 @@
         "Engineered a serverless backend using FastAPI, SQLModel, and Pydantic.",
         "Built full inventory and appointment management system with Swagger API documentation."
       ],
-      "keywords": [
-        "FastAPI",
-        "SQLModel",
-        "Pydantic",
-        "Vercel"
-      ],
+      "keywords": ["FastAPI", "SQLModel", "Pydantic", "Vercel"],
       "type": "Commission"
     },
     {
@@ -239,19 +223,15 @@
       "type": "Research/Project"
     },
     {
-      "name": "Artemis",
+      "name": "Artemis -  SWMS",
       "description": "Smart Waste Management System.",
       "highlights": [
         "Built an IoT-connected waste tracking system with Express.js and Firebase backend.",
         "Implemented real-time monitoring via Firestore and automated CRON tasks."
       ],
-      "keywords": [
-        "Express.js",
-        "Firebase",
-        "IoT",
-        "Firestore"
-      ],
-      "type": "College Project"
+      "keywords": ["Express.js", "Firebase", "IoT", "Firestore"],
+      "type": "College Project",
+      "url": "https://github.com/artemis-smws/Artemis-Waste-Management-System"
     },
     {
       "name": "Clinical-RAG",
