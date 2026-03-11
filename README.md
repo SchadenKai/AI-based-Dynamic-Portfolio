@@ -1,6 +1,8 @@
 # AI-based Dynamic Portfolio
 
-<img src="./docs/assets/send-star-support-image.png" alt="Star the project for support" width="300" />
+<p align="center">
+  <img src="./docs/assets/send-star-support-image.png" alt="Star the project for support" width="300" />
+</p>
 
 A modern, dynamic portfolio built with [Next.js](https://nextjs.org), designed to uniquely tailor content presentation using AI.
 
