@@ -1,11 +1,11 @@
 {
   "basics": {
     "name": "Kairus Noah Encarnacion Tecson",
-    "label": "Senior AI Software Engineer",
+    "label": "Founder & Lead AI Engineer",
     "email": "kairustecsonpersonal@gmail.com",
     "phone": "(+63) 976-188-3386",
     "url": "https://schadenkai.github.io/",
-    "summary": "Senior AI Software Engineer with a background as Head of Engineering, specializing in Production RAG Systems and Multi-Agent Orchestration for Healthcare and Defense. Expert in the full AI lifecycle—from architecting ReAct and Plan-and-Execute workflows to implementing rigorous LLM evaluation pipelines using LangSmith.",
+    "summary": "Founder & Lead AI Engineer at Real Solutions PH, a software studio shipping production AI products for clients in the US, Europe, and Asia. Former Head of Engineering at ArnoldAI. Specializes in production RAG, multi-agent orchestration, real-time voice agents, and multi-tenant SaaS, and runs delivery end to end: discovery, specification, agent-assisted TDD builds, evaluation, and phase sign-off.",
     "location": {
       "city": "Batangas",
       "countryCode": "PH"
@@ -24,6 +24,45 @@
     ]
   },
   "work": [
+    {
+      "name": "Real Solutions PH",
+      "position": "Founder & Lead AI Engineer",
+      "startDate": "2025-12",
+      "location": "Philippines (Remote, global clients)",
+      "summary": "Founded a software studio that designs, builds, and operates production AI and SaaS products for international clients, on fixed-scope phased engagements.",
+      "highlights": [
+        "Delivered a voice-cloned AI coaching platform: real-time voice sessions (Pipecat, Deepgram STT, ElevenLabs TTS) grounded by RAG over Milvus, with Dagster ingestion pipelines.",
+        "Built a multi-tenant AI agent platform with embeddable chat widgets, an operator console, tenant-isolated knowledge bases, and a bilingual dashboard.",
+        "Shipped a real-estate market intelligence product: Dagster data pipelines feeding a FastAPI + Next.js analytics layer on Supabase.",
+        "Engineered features for a restaurant management platform (FastAPI, Celery/Redis, React 19) serving live operations, with Playwright end-to-end coverage.",
+        "Authored the studio's reusable full-stack template (FastAPI, SQLModel, Next.js 16, Expo, Supabase Auth, Postgres RLS), with compliance controls and evidence built in.",
+        "Designed an agent-orchestrated delivery system: parallel worktree build sessions, architect-gated plans, test-first implementation, independent review, and traceable acceptance evidence.",
+        "Own the full client lifecycle: discovery, proposals and SOWs, technical design, phase sign-off, and hypercare."
+      ],
+      "skills": [
+        "FastAPI",
+        "SQLModel",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Expo",
+        "Supabase",
+        "PostgreSQL",
+        "Milvus",
+        "Dagster",
+        "Pipecat",
+        "Deepgram",
+        "ElevenLabs",
+        "Celery",
+        "Redis",
+        "Playwright",
+        "Docker",
+        "AWS",
+        "GitHub Actions",
+        "Claude Code"
+      ],
+      "logo": "/company_logo/real_solutions_ph_logo.png"
+    },
     {
       "name": "ArnoldAI",
       "position": "Head of Engineering",
@@ -122,7 +161,10 @@
         "PyTorch",
         "OpenAI API",
         "Scikit-learn",
-        "Pandas"
+        "Pandas",
+        "Voice AI (Pipecat, Deepgram, ElevenLabs)",
+        "Milvus",
+        "Agentic Coding (Claude Code, Codex)"
       ]
     },
     {
@@ -134,7 +176,10 @@
         "SQLModel",
         "Pydantic",
         "Node.js (Express)",
-        "PHP"
+        "PHP",
+        "Celery",
+        "Dagster",
+        "Alembic"
       ]
     },
     {
@@ -145,7 +190,8 @@
         "TypeScript",
         "TailwindCSS",
         "Ionic",
-        "React Native"
+        "React Native",
+        "Expo"
       ]
     },
     {
@@ -165,7 +211,25 @@
     },
     {
       "name": "Database",
-      "keywords": ["Firestore", "PostgreSQL", "Supabase", "MySQL"]
+      "keywords": [
+        "Firestore",
+        "PostgreSQL",
+        "Supabase",
+        "MySQL",
+        "Redis",
+        "Row-Level Security (RLS)"
+      ]
+    },
+    {
+      "name": "Testing & Delivery",
+      "keywords": [
+        "Pytest",
+        "Playwright",
+        "Cypress",
+        "Test-Driven Development",
+        "Mutation Testing",
+        "Scrumban"
+      ]
     }
   ],
   "projects": [
@@ -177,7 +241,13 @@
         "Data-driven design powered by a central profile.json configuration.",
         "SEO and metadata control centralized in a single configuration file."
       ],
-      "keywords": ["Next.js", "React", "Vertex AI", "Gemini", "TypeScript"],
+      "keywords": [
+        "Next.js",
+        "React",
+        "Vertex AI",
+        "Gemini",
+        "TypeScript"
+      ],
       "type": "Open Source",
       "url": "https://github.com/SchadenKai/AI-based-Dynamic-Portfolio"
     },
@@ -204,7 +274,12 @@
         "Engineered a serverless backend using FastAPI, SQLModel, and Pydantic.",
         "Built full inventory and appointment management system with Swagger API documentation."
       ],
-      "keywords": ["FastAPI", "SQLModel", "Pydantic", "Vercel"],
+      "keywords": [
+        "FastAPI",
+        "SQLModel",
+        "Pydantic",
+        "Vercel"
+      ],
       "type": "Commission"
     },
     {
@@ -229,7 +304,12 @@
         "Built an IoT-connected waste tracking system with Express.js and Firebase backend.",
         "Implemented real-time monitoring via Firestore and automated CRON tasks."
       ],
-      "keywords": ["Express.js", "Firebase", "IoT", "Firestore"],
+      "keywords": [
+        "Express.js",
+        "Firebase",
+        "IoT",
+        "Firestore"
+      ],
       "type": "College Project",
       "url": "https://github.com/artemis-smws/Artemis-Waste-Management-System"
     },

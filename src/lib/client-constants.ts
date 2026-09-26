@@ -7,9 +7,9 @@
 
 export const SITE_CONFIG = {
     // Basic SEO
-    title: "Kairus Noah Tecson | Senior AI Software Engineer",
+    title: "Kairus Noah Tecson | Founder & Lead AI Engineer",
     titleTemplate: "%s | Kairus Noah Tecson",
-    description: "Senior AI Software Engineer specializing in Production RAG Systems and Multi-Agent Orchestration for Healthcare and Defense. Expert in LangChain, LangGraph, and full AI lifecycle development.",
+    description: "Founder & Lead AI Engineer at Real Solutions PH. Builds production RAG systems, multi-agent orchestration, and real-time voice AI products. Former Head of Engineering at ArnoldAI.",
     siteUrl: "https://schadenkai.space",
 
     // Author Info
